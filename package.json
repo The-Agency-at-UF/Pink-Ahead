@@ -9,11 +9,14 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@iconify/tailwind4": "^1.2.3",
     "next": "16.2.6",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@iconify-json/ic": "^1.2.4",
+    "@iconify-json/mdi": "^1.2.3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
