@@ -12,16 +12,17 @@ const navLinks = [
 export default function Footer() {
   return (
     <footer className="w-full bg-brand text-white">
-      <div className="flex w-full flex-row items-center justify-between gap-8 px-8 py-10 sm:px-12 md:py-12 lg:px-16">
-        <div className="flex flex-col items-start gap-6">
+      <div className="flex w-full flex-col-reverse items-center gap-8 px-6 py-10 sm:px-10 md:flex-row md:items-center md:justify-between md:py-12 lg:px-16">
+        {/* Left: links + socials + copy */}
+        <div className="flex w-full flex-col items-center gap-5 md:items-start md:gap-6">
           {/* Nav links */}
           <nav aria-label="Footer">
-            <ul className="flex flex-wrap items-center gap-x-6 gap-y-2 sm:gap-x-8">
+            <ul className="flex flex-wrap justify-center gap-x-5 gap-y-2 sm:gap-x-6 md:justify-start md:gap-x-8">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="font-nav text-2xl font-normal leading-none tracking-[0.04em] uppercase text-white transition-opacity hover:opacity-80"
+                    className="font-nav text-xl font-normal leading-none tracking-[0.04em] uppercase text-white transition-opacity hover:opacity-80 sm:text-2xl"
                   >
                     {link.label}
                   </a>
@@ -77,7 +78,7 @@ export default function Footer() {
           </ul>
 
           {/* Rights text */}
-          <p className="font-sans text-base font-normal tracking-wide text-white">
+          <p className="font-sans text-sm font-normal tracking-wide text-white text-center md:text-left md:text-base">
             Rights Reserved / Disclaimers
           </p>
         </div>
@@ -86,7 +87,7 @@ export default function Footer() {
         <Link
           href="/"
           aria-label="Pink Ahead home"
-          className="flex h-32 w-32 shrink-0 items-center justify-center transition-opacity hover:opacity-80"
+          className="flex h-24 w-24 shrink-0 items-center justify-center transition-opacity hover:opacity-80 md:h-32 md:w-32"
         >
           <Image
             src="/assets/PinkAheadFooter.svg"
