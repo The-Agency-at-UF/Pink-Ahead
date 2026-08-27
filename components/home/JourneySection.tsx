@@ -6,11 +6,12 @@ interface StepCardProps {
   alt: string;
   step: string;
   subtitle: string;
+  blurb: string;
 }
 
-function StepCard({ src, alt, step, subtitle }: StepCardProps) {
+function StepCard({ src, alt, step, subtitle, blurb }: StepCardProps) {
   return (
-    <div className="relative overflow-hidden flex-1 min-h-[280px] sm:min-h-[380px] md:min-h-[480px] lg:min-h-[600px]">
+    <div className="group relative overflow-hidden flex-1 min-h-[280px] sm:min-h-[380px] md:min-h-[480px] lg:min-h-[600px]">
       <Image
         src={src}
         alt={alt}
@@ -24,7 +25,7 @@ function StepCard({ src, alt, step, subtitle }: StepCardProps) {
         style={{ backgroundColor: PINK, opacity: 0.5 }}
       />
       {/* Text */}
-      <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 lg:p-8">
+      <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 lg:p-8 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-4 md:group-hover:-translate-y-6">
         <p
           style={{
             ...acuminBold,
@@ -46,6 +47,20 @@ function StepCard({ src, alt, step, subtitle }: StepCardProps) {
         >
           {subtitle}
         </p>
+        <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:mt-2 group-hover:grid-rows-[1fr] group-hover:opacity-100">
+          <p
+            className="overflow-hidden"
+            style={{
+              ...acuminRegular,
+              fontSize: "clamp(12px, 1.2vw, 18px)",
+              color: "white",
+              letterSpacing: "-0.18px",
+              lineHeight: "1.4",
+            }}
+          >
+            {blurb}
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -57,18 +72,24 @@ const STEPS: StepCardProps[] = [
     alt: "Step 1: Care",
     step: "STEP 1: CARE",
     subtitle: "Caring for yourself comes first.",
+    blurb:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     src: "/assets/Step2_Image.png",
     alt: "Step 2: Resources",
     step: "STEP 2: RESOURCES",
     subtitle: "Knowing more means worrying less.",
+    blurb:
+      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
     src: "/assets/Step3_Image.png",
     alt: "Step 3: Community",
     step: "STEP 3: COMMUNITY",
     subtitle: "No one should face it alone.",
+    blurb:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
   },
 ];
 
