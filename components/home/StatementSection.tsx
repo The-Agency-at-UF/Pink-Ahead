@@ -14,7 +14,7 @@ export default function StatementSection() {
             color: DARK,
           }}
         >
-          STATEMENT
+          YOUR BREASTINATION
         </h2>
 
         {/* No max-w cap — text fills between the page margins */}
