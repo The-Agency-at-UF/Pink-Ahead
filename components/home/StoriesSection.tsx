@@ -27,11 +27,12 @@ export default function StoriesSection() {
       <div className="md:hidden relative mx-14">
         {/* Video card */}
         <div
-          className="w-full aspect-video"
+          className="relative w-full aspect-video"
           style={{ backgroundColor: DARK }}
-        />
-        <div className="mt-3">
-          <SmallButton label="WATCH" />
+        >
+          <div className="absolute bottom-4 left-4">
+            <SmallButton label="WATCH" />
+          </div>
         </div>
 
         {/* Left arrow — overlaps the left margin */}
@@ -71,11 +72,12 @@ export default function StoriesSection() {
           {[0, 1].map((i) => (
             <div key={i} className="flex-1 flex flex-col">
               <div
-                className="h-[240px] lg:h-[349px]"
+                className="relative h-[240px] lg:h-[349px]"
                 style={{ backgroundColor: DARK }}
-              />
-              <div className="mt-4">
-                <SmallButton label="WATCH" />
+              >
+                <div className="absolute bottom-4 left-4 lg:bottom-6 lg:left-6">
+                  <SmallButton label="WATCH" />
+                </div>
               </div>
             </div>
           ))}

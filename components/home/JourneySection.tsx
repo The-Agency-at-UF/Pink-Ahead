@@ -6,11 +6,12 @@ const GRAY = "#4A4A4A";
 interface StepCardProps {
   src: string;
   alt: string;
-  step: string;
+  stepLabel: string;
+  stepTitle: string;
   subtitle: string;
 }
 
-function StepCard({ src, alt, step, subtitle }: StepCardProps) {
+function StepCard({ src, alt, stepLabel, stepTitle, subtitle }: StepCardProps) {
   return (
     <div className="group relative overflow-hidden flex-1 min-h-[280px] sm:min-h-[380px] md:min-h-[480px] lg:min-h-[600px]">
       <Image
@@ -38,9 +39,23 @@ function StepCard({ src, alt, step, subtitle }: StepCardProps) {
             fontSize: "clamp(22px, 3vw, 48px)",
             color: "white",
             lineHeight: "normal",
+            letterSpacing: "-0.18px",
           }}
         >
-          {step}
+          {stepLabel}
+        </p>
+        <p
+          style={{
+            ...acuminBold,
+            fontSize: "clamp(22px, 3vw, 48px)",
+            color: "white",
+            lineHeight: 1.1,
+            minHeight: "2.2em",
+            display: "flex",
+            alignItems: "flex-end",
+          }}
+        >
+          {stepTitle}
         </p>
         <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:mt-2 group-hover:grid-rows-[1fr] group-hover:opacity-100">
           <p
@@ -65,20 +80,23 @@ const STEPS: StepCardProps[] = [
   {
     src: "/assets/Step1_Image.png",
     alt: "Step 1: You Come First",
-    step: "STEP 1: YOU COME FIRST",
+    stepLabel: "STEP 1:",
+    stepTitle: "YOU COME FIRST",
     subtitle: "Caring for yourself comes first.",
   },
   {
     src: "/assets/Step2_Image.png",
     alt: "Step 2: Know More, Fear Less",
-    step: "STEP 2: KNOW MORE, FEAR LESS",
+    stepLabel: "STEP 2:",
+    stepTitle: "KNOW MORE, FEAR LESS",
     subtitle:
       "The more you understand your breast health, the more confident you'll feel taking action.",
   },
   {
     src: "/assets/Step3_Image.png",
     alt: "Step 3: Show Up",
-    step: "STEP 3: SHOW UP",
+    stepLabel: "STEP 3:",
+    stepTitle: "SHOW UP",
     subtitle: "No one should face breast cancer alone.",
   },
 ];
@@ -100,7 +118,7 @@ export default function JourneySection() {
       {/* Stack on mobile/sm, row on md+ */}
       <div className="flex flex-col sm:flex-row gap-1 px-4 sm:px-8 md:gap-4 lg:gap-10 md:px-14 lg:px-20">
         {STEPS.map((step) => (
-          <StepCard key={step.step} {...step} />
+          <StepCard key={step.stepLabel} {...step} />
         ))}
       </div>
     </section>
