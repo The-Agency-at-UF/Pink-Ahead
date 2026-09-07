@@ -14,7 +14,7 @@ export default function StatementSection() {
             color: DARK,
           }}
         >
-          STATEMENT
+          YOUR BREASTINATION
         </h2>
 
         {/* No max-w cap — text fills between the page margins */}
@@ -53,12 +53,12 @@ export default function StatementSection() {
 
       {/* Video placeholder — 16:9, matches page margins at all sizes */}
       <div
-        className="mt-8 md:mt-12 mx-5 sm:mx-10 md:mx-14 lg:mx-20"
+        className="relative mt-8 md:mt-12 mx-5 sm:mx-10 md:mx-14 lg:mx-20"
         style={{ aspectRatio: "16 / 9", backgroundColor: DARK }}
-      />
-
-      <div className="mt-4 md:mt-6 px-5 sm:px-10 md:px-14 lg:px-20">
-        <SmallButton label="WATCH" />
+      >
+        <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 lg:bottom-8 lg:left-8">
+          <SmallButton label="WATCH" />
+        </div>
       </div>
     </section>
   );

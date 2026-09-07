@@ -1,15 +1,17 @@
 import Image from "next/image";
 import { PINK, DARK, acuminBold, acuminRegular } from "@/app/styles/tokens";
 
+const GRAY = "#4A4A4A";
+
 interface StepCardProps {
   src: string;
   alt: string;
-  step: string;
+  stepLabel: string;
+  stepTitle: string;
   subtitle: string;
-  blurb: string;
 }
 
-function StepCard({ src, alt, step, subtitle, blurb }: StepCardProps) {
+function StepCard({ src, alt, stepLabel, stepTitle, subtitle }: StepCardProps) {
   return (
     <div className="group relative overflow-hidden flex-1 min-h-[280px] sm:min-h-[380px] md:min-h-[480px] lg:min-h-[600px]">
       <Image
@@ -21,8 +23,13 @@ function StepCard({ src, alt, step, subtitle, blurb }: StepCardProps) {
       />
       {/* Pink overlay */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-0"
         style={{ backgroundColor: PINK, opacity: 0.5 }}
+      />
+      {/* Gray overlay (hover only) */}
+      <div
+        className="absolute inset-0 opacity-0 transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-50"
+        style={{ backgroundColor: GRAY }}
       />
       {/* Text */}
       <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 lg:p-8 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-4 md:group-hover:-translate-y-6">
@@ -32,33 +39,36 @@ function StepCard({ src, alt, step, subtitle, blurb }: StepCardProps) {
             fontSize: "clamp(22px, 3vw, 48px)",
             color: "white",
             lineHeight: "normal",
+            letterSpacing: "-0.18px",
           }}
         >
-          {step}
+          {stepLabel}
         </p>
         <p
           style={{
-            ...acuminRegular,
-            fontSize: "clamp(14px, 1.6vw, 24px)",
+            ...acuminBold,
+            fontSize: "clamp(22px, 3vw, 48px)",
             color: "white",
-            letterSpacing: "-0.18px",
-            lineHeight: "normal",
+            lineHeight: 1.1,
+            minHeight: "2.2em",
+            display: "flex",
+            alignItems: "flex-end",
           }}
         >
-          {subtitle}
+          {stepTitle}
         </p>
         <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:mt-2 group-hover:grid-rows-[1fr] group-hover:opacity-100">
           <p
             className="overflow-hidden"
             style={{
               ...acuminRegular,
-              fontSize: "clamp(12px, 1.2vw, 18px)",
+              fontSize: "clamp(14px, 1.6vw, 24px)",
               color: "white",
               letterSpacing: "-0.18px",
-              lineHeight: "1.4",
+              lineHeight: "normal",
             }}
           >
-            {blurb}
+            {subtitle}
           </p>
         </div>
       </div>
@@ -69,27 +79,25 @@ function StepCard({ src, alt, step, subtitle, blurb }: StepCardProps) {
 const STEPS: StepCardProps[] = [
   {
     src: "/assets/Step1_Image.png",
-    alt: "Step 1: Care",
-    step: "STEP 1: CARE",
+    alt: "Step 1: You Come First",
+    stepLabel: "STEP 1:",
+    stepTitle: "YOU COME FIRST",
     subtitle: "Caring for yourself comes first.",
-    blurb:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     src: "/assets/Step2_Image.png",
-    alt: "Step 2: Resources",
-    step: "STEP 2: RESOURCES",
-    subtitle: "Knowing more means worrying less.",
-    blurb:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    alt: "Step 2: Know More, Fear Less",
+    stepLabel: "STEP 2:",
+    stepTitle: "KNOW MORE, FEAR LESS",
+    subtitle:
+      "The more you understand your breast health, the more confident you'll feel taking action.",
   },
   {
     src: "/assets/Step3_Image.png",
-    alt: "Step 3: Community",
-    step: "STEP 3: COMMUNITY",
-    subtitle: "No one should face it alone.",
-    blurb:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    alt: "Step 3: Show Up",
+    stepLabel: "STEP 3:",
+    stepTitle: "SHOW UP",
+    subtitle: "No one should face breast cancer alone.",
   },
 ];
 
@@ -110,7 +118,7 @@ export default function JourneySection() {
       {/* Stack on mobile/sm, row on md+ */}
       <div className="flex flex-col sm:flex-row gap-1 px-4 sm:px-8 md:gap-4 lg:gap-10 md:px-14 lg:px-20">
         {STEPS.map((step) => (
-          <StepCard key={step.step} {...step} />
+          <StepCard key={step.stepLabel} {...step} />
         ))}
       </div>
     </section>
