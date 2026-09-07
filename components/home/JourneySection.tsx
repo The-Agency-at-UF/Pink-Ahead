@@ -36,9 +36,9 @@ function StepCard({ src, alt, stepLabel, stepTitle, subtitle }: StepCardProps) {
         <p
           style={{
             ...acuminBold,
-            fontSize: "clamp(22px, 3vw, 48px)",
+            fontSize: "clamp(26px, 3.6vw, 56px)",
             color: "white",
-            lineHeight: "normal",
+            lineHeight: 1,
             letterSpacing: "-0.18px",
           }}
         >
@@ -47,17 +47,14 @@ function StepCard({ src, alt, stepLabel, stepTitle, subtitle }: StepCardProps) {
         <p
           style={{
             ...acuminBold,
-            fontSize: "clamp(22px, 3vw, 48px)",
+            fontSize: "clamp(26px, 3.6vw, 56px)",
             color: "white",
-            lineHeight: 1.1,
-            minHeight: "2.2em",
-            display: "flex",
-            alignItems: "flex-end",
+            lineHeight: 1,
           }}
         >
           {stepTitle}
         </p>
-        <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:mt-2 group-hover:grid-rows-[1fr] group-hover:opacity-100">
+        <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:mt-1 group-hover:grid-rows-[1fr] group-hover:opacity-100">
           <p
             className="overflow-hidden"
             style={{
