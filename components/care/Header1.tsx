@@ -2,7 +2,7 @@ import HeroBanner from "@/components/about/HeroBanner";
 import { PINK, DARK, acuminBold, acuminRegular } from "@/app/styles/tokens";
 
 const h2Class = "text-center mb-6 lg:mb-10 text-[40px] md:text-[52px] lg:text-[64px]";
-const h3Class = "mb-4 text-[28px] md:text-[36px] lg:text-[48px]";
+const h3Class = "mb-4 leading-none [text-box:trim-start_cap_alphabetic] text-[28px] md:text-[36px] lg:text-[48px]";
 const bodyClass = "text-[18px] md:text-[20px] lg:text-[24px]";
 const bodyStyle: React.CSSProperties = {
   ...acuminRegular,
