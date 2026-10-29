@@ -1,14 +1,10 @@
-import HeroBanner from "@/components/about/HeroBanner";
+import ResourcesPage from "@/components/resources/ResourcesPage";
 
 export const metadata = {
   title: "Resources | Pink Ahead",
   description: "Helpful resources and information from Pink Ahead.",
 };
 
-export default function ResourcesPage() {
-  return (
-    <main className="flex flex-col w-full">
-      <HeroBanner title="RESOURCES" />
-    </main>
-  );
+export default function ResourcesRoute() {
+  return <ResourcesPage />;
 }
