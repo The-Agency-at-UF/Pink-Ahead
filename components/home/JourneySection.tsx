@@ -9,9 +9,17 @@ interface StepCardProps {
   stepLabel: string;
   stepTitle: string;
   subtitle: string;
+  titleFontSize?: string;
 }
 
-function StepCard({ src, alt, stepLabel, stepTitle, subtitle }: StepCardProps) {
+function StepCard({
+  src,
+  alt,
+  stepLabel,
+  stepTitle,
+  subtitle,
+  titleFontSize = "clamp(26px, 3.6vw, 56px)",
+}: StepCardProps) {
   return (
     <div className="group relative overflow-hidden flex-1 min-h-[280px] sm:min-h-[380px] md:min-h-[480px] lg:min-h-[600px]">
       <Image
@@ -47,7 +55,7 @@ function StepCard({ src, alt, stepLabel, stepTitle, subtitle }: StepCardProps) {
         <p
           style={{
             ...acuminBold,
-            fontSize: "clamp(26px, 3.6vw, 56px)",
+            fontSize: titleFontSize,
             color: "white",
             lineHeight: 1,
           }}
@@ -86,6 +94,7 @@ const STEPS: StepCardProps[] = [
     alt: "Step 2: Know More, Fear Less",
     stepLabel: "STEP 2:",
     stepTitle: "KNOW MORE, FEAR LESS",
+    titleFontSize: "clamp(23px, 3.5vw, 50px)",
     subtitle:
       "The more you understand your breast health, the more confident you'll feel taking action.",
   },
