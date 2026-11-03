@@ -1,5 +1,6 @@
 import HeroBanner from "@/components/about/HeroBanner";
 import ChecklistItem from "@/components/care/ChecklistItem";
+import CareReferences from "@/components/care/CareReferences";
 import { PINK, DARK, acuminBold, acuminRegular } from "@/app/styles/tokens";
 
 const h2Class = "text-center mb-6 lg:mb-10 text-[40px] md:text-[52px] lg:text-[64px]";
@@ -180,50 +181,7 @@ export default function Header1() {
           ))}
         </div>
 
-        {/* Definitions & references */}
-        <div className="mt-24 lg:mt-48 space-y-6 text-[14px] md:text-[16px] lg:text-[18px] [&_a]:underline" style={bodyStyle}>
-          <p>
-            Definitions: BRCA1, BReast CAncer gene 1; BRCA2, BReast CAncer gene 2; MRI,
-            Magnetic Resonance Imaging
-          </p>
-          <p>
-            References: 1. American Cancer Society. (2026).{" "}
-            <a href="https://www.cancer.org/cancer/types/breast-cancer/screening-tests-and-early-detection/american-cancer-society-recommendations-for-the-early-detection-of-breast-cancer.html" target="_blank" rel="noopener noreferrer">
-              American Cancer Society recommendations for the early detection of breast cancer.
-            </a>{" "}
-            American Cancer Society. 2. American Cancer Society. (2026).{" "}
-            <a href="https://www.cancer.org/cancer/types/breast-cancer/screening-tests-and-early-detection/breast-cancer-signs-and-symptoms.html" target="_blank" rel="noopener noreferrer">
-              Signs and symptoms of breast cancer
-            </a>
-            . American Cancer Society. 3. Centers for Disease Control and Prevention. (2026).{" "}
-            <a href="https://www.cdc.gov/breast-cancer/symptoms/index.html" target="_blank" rel="noopener noreferrer">
-              Symptoms of breast cancer.
-            </a>{" "}
-            Centers for Disease Control and Prevention. 4. Centers for Disease Control and
-            Prevention. (2026).{" "}
-            <a href="https://www.cdc.gov/breast-cancer/risk-factors/index.html" target="_blank" rel="noopener noreferrer">
-              Breast cancer risk factors.
-            </a>{" "}
-            Centers for Disease Control and Prevention. 5. Centers for Disease Control and
-            Prevention. (2024).{" "}
-            <a href="https://www.cdc.gov/breast-cancer/about/mammograms.html" target="_blank" rel="noopener noreferrer">
-              About mammograms
-            </a>
-            . Centers for Disease Control and Prevention. 6. Cleveland Clinic. (2024).{" "}
-            <a href="https://my.clevelandclinic.org/health/diagnostics/21496-breast-ultrasound" target="_blank" rel="noopener noreferrer">
-              Breast ultrasound: What it is, purpose, procedure &amp; results
-            </a>
-            . Cleveland Clinic. 7. Cleveland Clinic. (2024).{" "}
-            <a href="https://my.clevelandclinic.org/health/diagnostics/4877-mammogram" target="_blank" rel="noopener noreferrer">
-              Mammogram: What it is, purpose, procedure, results &amp; types
-            </a>
-            . Cleveland Clinic. 8. Mayo Clinic. (2023).{" "}
-            <a href="https://www.mayoclinic.org/tests-procedures/breast-mri/about/pac-20384809" target="_blank" rel="noopener noreferrer">
-              Breast MRI.
-            </a>{" "}
-            Mayo Clinic.
-          </p>
-        </div>
+        <CareReferences definitions="BRCA1, BReast CAncer gene 1; BRCA2, BReast CAncer gene 2; MRI, Magnetic Resonance Imaging" />
       </section>
     </div>
   );

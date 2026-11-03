@@ -3,6 +3,8 @@
 import { useState } from "react";
 
 import HeroBanner from "@/components/about/HeroBanner";
+import SmallButton from "@/components/SmallButton";
+import NewsletterCard, { type NewsletterCardProps } from "@/components/resources/NewsletterCard";
 import { DARK, PINK, acuminBold, acuminRegular } from "@/app/styles/tokens";
 
 const LOREM =
@@ -11,8 +13,17 @@ const LOREM =
 const TABS = ["MAP", "DOCUMENTS", "NEWSLETTERS"] as const;
 type Tab = (typeof TABS)[number];
 
+// shortcut: placeholder newsletters until real issues are supplied
+const NEWSLETTERS: NewsletterCardProps[] = Array.from({ length: 10 }, () => ({
+  date: "DD/MM/YYYY",
+  title: "LOREM IPSUM DOLR SIT AMET, CONSECTETUR ADIPISCING ELIT, SED DO EIUSMOD",
+  excerpt: LOREM,
+}));
+const PAGE_SIZE = 5;
+
 export default function ResourcesPage() {
   const [active, setActive] = useState<Tab>("MAP");
+  const [shown, setShown] = useState(PAGE_SIZE);
 
   return (
     <div className="w-full bg-white">
@@ -68,21 +79,35 @@ export default function ResourcesPage() {
           })}
         </div>
 
-        <div
-          role="tabpanel"
-          aria-label={active}
-          className="mt-8 lg:mt-12 w-full aspect-[16/9]"
-          style={{ backgroundColor: DARK }}
-        >
-          {/* shortcut: documents/newsletters keep the dark placeholder until their content exists */}
+        <div role="tabpanel" aria-label={active} className="mt-8 lg:mt-12 w-full">
           {active === "MAP" && (
             <iframe
               title="Map of the United States"
               src="https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1sUnited+States!6i4"
-              className="w-full h-full border-0"
+              className="w-full aspect-[16/9] border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
+          )}
+
+          {/* shortcut: documents keeps the dark placeholder until its content exists */}
+          {active === "DOCUMENTS" && (
+            <div className="w-full aspect-[16/9]" style={{ backgroundColor: DARK }} />
+          )}
+
+          {active === "NEWSLETTERS" && (
+            <>
+              <div className="flex flex-col gap-8 lg:gap-12">
+                {NEWSLETTERS.slice(0, shown).map((item, i) => (
+                  <NewsletterCard key={i} {...item} />
+                ))}
+              </div>
+              {shown < NEWSLETTERS.length && (
+                <div className="mt-10 lg:mt-16 flex justify-center">
+                  <SmallButton label="LOAD MORE" onClick={() => setShown((n) => n + PAGE_SIZE)} />
+                </div>
+              )}
+            </>
           )}
         </div>
       </section>
