@@ -8,7 +8,7 @@ const LOREM =
 const HEADERS = [
   { label: "HEADER 1", href: "/care/header1" },
   { label: "HEADER 2", href: "/care/header2" },
-  { label: "HEADER 3" },
+  { label: "HEADER 3", href: "/care/header3" },
   { label: "HEADER 4" },
 ];
 
@@ -38,7 +38,7 @@ export default function CarePage() {
         </p>
 
         <div className="mt-10 lg:mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {/* shortcut: headers 3-4 have no destination yet, add an href once those pages exist */}
+          {/* shortcut: header 4 has no destination yet, add an href once that page exists */}
           {HEADERS.map(({ label, href }) => (
             <LargeButton
               key={label}
