@@ -10,6 +10,7 @@ const HEADERS = [
   { label: "HEADER 2", href: "/care/header2" },
   { label: "HEADER 3", href: "/care/header3" },
   { label: "HEADER 4" },
+  { label: "HEADER 5", href: "/care/header5" },
 ];
 
 export default function CarePage() {
